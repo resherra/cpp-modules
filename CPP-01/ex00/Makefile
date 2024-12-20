@@ -2,14 +2,15 @@ SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 HEADERS = $(wildcard *.hpp)
 NAME = zombies
+FLAGS= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+	c++ $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
-	c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean:
 	rm $(OBJ)
