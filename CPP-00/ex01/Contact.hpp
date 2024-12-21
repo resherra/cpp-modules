@@ -27,4 +27,8 @@ class Contact
         std::string secret;
 };
 
+void custom_get_line(std::istream& in, std::string& arg);
+
+
+
 #endif

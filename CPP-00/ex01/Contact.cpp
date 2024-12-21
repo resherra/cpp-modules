@@ -1,32 +1,5 @@
 #include "PhoneBook.hpp"
 
-bool    isempty(std::string arg)
-{
-    int size = arg.size();
-    int i = 0;
-    while (i < size)
-    {
-        if (!std::isspace(arg[i]))
-            return false;
-        i++;
-    }
-    return true;
-}
-
-void custom_get_line(std::istream& in, std::string& arg)
-{
-    if (!std::getline(in, arg))
-    {
-        std::cout << std::endl;
-        exit(1);
-    }
-    if (isempty(arg))
-    {
-        throw -1;
-    }
-}
-
-
 void    Contact::set_first_name(std::istream& in)
 {
     std::cout << "First name: ";
@@ -55,4 +28,29 @@ void Contact::set_secret(std::istream& in)
 {
     std::cout << "Secret: ";
     custom_get_line(in, secret);
+}
+
+std::string   Contact::get_first_name()
+{
+    return first_name;
+}
+
+std::string Contact::get_last_name()
+{
+    return last_name;
+}
+
+std::string Contact::get_nickname()
+{
+    return nickname;
+}
+
+std::string Contact::get_phone_number()
+{
+    return phone_number;
+}
+
+std::string Contact::get_secret()
+{  
+    return secret;
 }

@@ -1,8 +1,8 @@
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
-HEADERS = Contact.hpp PhoneBook.hpp
+HEADERS = $(wildcard *.hpp)
 NAME = phonebook
-FLAGS= -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

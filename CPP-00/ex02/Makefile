@@ -2,7 +2,7 @@ SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 HEADERS = Account.hpp
 NAME = Account
-FLAGS= -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra  -std=c++98
 
 all: $(NAME)
 
