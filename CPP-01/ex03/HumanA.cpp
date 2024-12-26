@@ -2,7 +2,10 @@
 #include <iostream>
 
     
-HumanA::HumanA(std::string humanName, Weapon &weaponType): name(humanName), weapon(weaponType) {};
+HumanA::HumanA(std::string humanName, Weapon &weaponType): weapon(weaponType)
+{
+    name = humanName;
+}
 
 void    HumanA::attack()
 {
