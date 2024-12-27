@@ -2,8 +2,6 @@
 #include <fstream>
 #include <string>
 
-#include <unistd.h>
-
 void    replace(std::string buffer, std::ofstream& outfile, std::string to_replace, std::string replace_by)
 {   
     int to_replace_len = to_replace.length();
@@ -13,7 +11,6 @@ void    replace(std::string buffer, std::ofstream& outfile, std::string to_repla
     {
         newString = newString.erase(position, to_replace_len);
         newString = newString.insert(position, replace_by); 
-        std::cout << newString << std::endl;
         position = newString.find(to_replace, position + replace_by.length() - 1);
     }
     outfile << newString << std::endl;
