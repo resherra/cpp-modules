@@ -1,7 +1,7 @@
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 HEADERS = $(wildcard *.hpp)
-NAME = Harl
+NAME = harlFilter
 FLAGS= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
