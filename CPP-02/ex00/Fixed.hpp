@@ -11,7 +11,7 @@ class Fixed
         Fixed&  operator=(Fixed& fixed);
 
         Fixed();
-        Fixed(Fixed Fixed);
+        Fixed(Fixed& Fixed);
         ~Fixed();
     private:
         int num;

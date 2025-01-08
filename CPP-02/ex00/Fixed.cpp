@@ -10,7 +10,7 @@ Fixed::Fixed(): num(0)
 }
 
 //copy constructor
-Fixed::Fixed(Fixed fixed)
+Fixed::Fixed(Fixed& fixed)
 {
     std::cout << "Copy constructor called" << "\n";
     *this = fixed;
