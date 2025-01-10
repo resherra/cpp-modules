@@ -3,12 +3,6 @@
 
 const int Fixed::n_fractional_bits = 8;
 
-void    print(std::string str)
-{
-    (void)str;
-    // std::cout << str << "\n";
-}
-
 //insertion operator
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
@@ -24,6 +18,126 @@ Fixed&  Fixed::operator=(const Fixed& fixed)
     return *this;
 }
 
+//arithmetic operators
+Fixed   Fixed::operator+(const Fixed& r)
+{
+    Fixed fixed;
+
+    fixed.setRawBits((*this).raw + r.raw);
+    return fixed;
+}
+
+Fixed   Fixed::operator-(const Fixed& r)
+{
+    Fixed fixed;
+
+    fixed.setRawBits((*this).raw - r.raw);
+    return fixed;
+}
+
+Fixed   Fixed::operator*(const Fixed& r)
+{
+    Fixed fixed;
+    
+    fixed.setRawBits(((*this).raw * r.raw) / 256);
+    return fixed;
+}
+
+Fixed   Fixed::operator/(const Fixed& r)
+{
+    Fixed fixed;
+
+    fixed.setRawBits((*this).raw / r.toFloat());
+    return fixed;
+}
+
+//comparison operators
+bool    Fixed::operator>(const Fixed& r)    const
+{
+    return (raw > r.raw);
+}
+
+bool    Fixed::operator<(const Fixed& r)    const
+{
+    return (raw < r.raw);
+}
+
+bool    Fixed::operator>=(const Fixed& r)   const
+{
+    return (raw >= r.raw);
+}
+
+bool    Fixed::operator<=(const Fixed& r)   const
+{
+        return (raw <= r.raw);
+}
+
+bool    Fixed::operator==(const Fixed& r)   const
+{
+        return (raw == r.raw);
+}
+
+bool    Fixed::operator!=(const Fixed& r)   const
+{
+        return (raw != r.raw);
+}
+
+//inc & dec operators
+Fixed&  Fixed::operator++()
+{
+    ++raw;
+    return *this;
+}
+
+Fixed  Fixed::operator++(int)
+{
+    Fixed tmp = *this;
+    raw++;
+    return tmp;
+}
+
+Fixed&  Fixed::operator--()
+{
+    --raw;
+    return *this;
+}
+
+Fixed  Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    raw--;
+    return tmp;
+}
+
+
+//min & max functions
+Fixed&  Fixed::min(Fixed& a, Fixed& b)
+{
+    if (a < b)
+        return a;
+    return b;
+}
+
+const   Fixed&  Fixed::min(const Fixed& a, const Fixed& b)
+{
+    if (a < b)
+        return a;
+    return b;   
+}
+
+Fixed&  Fixed::max(Fixed& a, Fixed& b)
+{
+    if (a > b)
+        return a;
+    return b;
+}
+
+const   Fixed&  Fixed::max(const Fixed& a, const Fixed& b)
+{
+    if (a > b)
+        return a;        
+    return b;   
+}
 
 //default constructor
 Fixed::Fixed(): raw(0)
@@ -36,6 +150,20 @@ Fixed::Fixed(const Fixed& fixed)
 {
    print("Copy constructor called"); 
     *this = fixed;
+}
+
+//int constructor
+Fixed::Fixed(const int integer)
+{
+    print("Int constructor called");
+    raw = integer << n_fractional_bits;
+}
+
+//float constructor
+Fixed::Fixed (const float FloatNum)
+{
+    print("Float constructor called");
+    raw = roundf(FloatNum * (1 << n_fractional_bits));
 }
 
 //destructor
@@ -54,24 +182,6 @@ float Fixed::toFloat( void ) const
 int Fixed::toInt(void)  const
 {
     return raw >> n_fractional_bits;
-}
-
-//int constructor
-Fixed::Fixed(const int integer)
-{
-
-    print("Int constructor called");
-    raw = integer << n_fractional_bits;
-        std::cout << "here "  << raw / 256<< std::endl;
-
-}
-
-//float constructor
-Fixed::Fixed (const float FloatNum)
-{
-    // std::cout << "here" << std::endl;
-    print("Float constructor called");
-    raw = roundf(FloatNum * (1 << n_fractional_bits));
 }
 
 int Fixed::getRawBits( void ) const

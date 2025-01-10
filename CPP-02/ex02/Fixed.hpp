@@ -4,14 +4,19 @@
 #include <iostream>
 #include <cmath>
 
+class Fixed;
+
+std::ostream&   operator<<(std::ostream& os, const Fixed& fixed);
+void            print(std::string str);
+
 class Fixed
 {
     public:
         //functios
-        int getRawBits( void ) const;
-        void setRawBits( int const raw );
-        float toFloat( void ) const;
-        int toInt( void ) const;
+        int     getRawBits( void ) const;
+        void    setRawBits( int const raw );
+        float   toFloat( void ) const;
+        int     toInt( void ) const;
 
         // assignment
         Fixed&  operator=(const Fixed&);
@@ -35,8 +40,8 @@ class Fixed
         Fixed&  operator++();
         Fixed&  operator--();
         // post
-        Fixed  operator++(int);
-        Fixed  operator--(int);
+        Fixed   operator++(int);
+        Fixed   operator--(int);
 
 
         //min & max
@@ -51,10 +56,8 @@ class Fixed
         Fixed(const Fixed&);
         ~Fixed();
     private:
-        int raw;
-        static const int n_fractional_bits;
+        int     raw;
+        static  const int n_fractional_bits;
 };
-
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
