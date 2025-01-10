@@ -51,12 +51,12 @@ void    formatDivide(Fixed& a, const Fixed& b)
 
 int main( void ) {
     Fixed a(10);
-    Fixed const b( Fixed( 1.05f ) * Fixed( 2 ) );
+    Fixed const b( Fixed( 5.05f ) * Fixed( 1 ) );
 
     // formatPlus(a, b);
     // formatMinus(a, b);
-    formatMult(a, b);
-    // formatDivide(a, b);
+    // formatMult(a, b);
+    formatDivide(a, b);
     // formatSmaller(a, b);
     // formatLarger(a, b);
     // formatMax(a, b);

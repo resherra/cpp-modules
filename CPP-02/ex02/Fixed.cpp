@@ -37,6 +37,8 @@ Fixed   Fixed::operator-(const Fixed& r)
 
 Fixed   Fixed::operator*(const Fixed& r)
 {
+
+    std::cout << "here" << std::endl;
     Fixed fixed;
     
     fixed.setRawBits(((*this).raw * r.raw) / 256);
@@ -47,7 +49,7 @@ Fixed   Fixed::operator/(const Fixed& r)
 {
     Fixed fixed;
 
-    fixed.setRawBits((*this).raw / r.toFloat());
+    fixed.setRawBits(((float)(*this).raw / r.raw) * 256);
     return fixed;
 }
 
