@@ -3,8 +3,7 @@
 
 void    print(std::string str)
 {
-    (void)str;
-    // std::cout << str << "\n";
+    std::cout << str << "\n";
 }
 
 void    formatSmaller(const Fixed& a, const Fixed& b)
@@ -50,13 +49,14 @@ void    formatDivide(Fixed& a, const Fixed& b)
 
 
 int main( void ) {
-    Fixed a(10);
-    Fixed const b( Fixed( 5.05f ) * Fixed( 1 ) );
-
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    
+    
     // formatPlus(a, b);
     // formatMinus(a, b);
     // formatMult(a, b);
-    formatDivide(a, b);
+    // formatDivide(a, b);
     // formatSmaller(a, b);
     // formatLarger(a, b);
     // formatMax(a, b);
@@ -68,7 +68,7 @@ int main( void ) {
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
 
- 
     return 0;
 }
