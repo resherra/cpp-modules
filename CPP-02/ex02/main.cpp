@@ -3,6 +3,7 @@
 
 void    print(std::string str)
 {
+    (void)str;
     std::cout << str << "\n";
 }
 
@@ -25,7 +26,6 @@ void    formatMin(const Fixed& a, const Fixed& b)
 {
     std::cout << "a: " << a << " | b: " << b << " | min(a, b) : " << Fixed::min(a, b) << '\n';
 }
-
 
 void    formatPlus(Fixed& a, const Fixed& b)
 {
