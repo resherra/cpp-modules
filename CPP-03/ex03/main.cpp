@@ -2,11 +2,10 @@
 
 int main()
 {
-    DiamondTrap  jack("jack");
+    DiamondTrap  diamondtrap("jack");
     
-    jack.attack("mouse");
-    // jack.beRepaired(10);
-    // jack.takeDamage(10);
-    // jack.highFivesGuys();
-    jack.whoAmI();
+    diamondtrap.attack("mouse");
+    diamondtrap.highFivesGuys();
+    diamondtrap.guardGate();
+    diamondtrap.whoAmI();
 }

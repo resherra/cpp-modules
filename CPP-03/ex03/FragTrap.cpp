@@ -3,20 +3,20 @@
 //default constructor
 FragTrap::FragTrap()
 {
-    std::cout << "Default fragtrap constructor called" << '\n';
+    std::cout << "Default FragTrap constructor called" << '\n';
 }
 
 //hit / attack constructor
 FragTrap::FragTrap(int hit, int attack)
 {
-    std::cout << "fragtrap name constructor called" << std::endl;
+    std::cout << "FragTrap hit / attack -- constructor called" << std::endl;
     Hit = hit;
     Attack = attack;
 }
 
 FragTrap::FragTrap(std::string n_name): ClapTrap(n_name)
 {
-    std::cout << "fragtrap name constructor called" << std::endl;
+    std::cout << "FragTrap name constructor called" << std::endl;
     Hit = 100;
     Energy = 100;
     Attack= 30;
@@ -25,7 +25,7 @@ FragTrap::FragTrap(std::string n_name): ClapTrap(n_name)
 //copy constructor
 FragTrap::FragTrap(const FragTrap& fragtrap)
 {
-    std::cout << "fragtrap copy constructor called" << '\n';
+    std::cout << "FragTrap copy constructor called" << '\n';
     *this = fragtrap;
 }
 
@@ -42,13 +42,13 @@ FragTrap    FragTrap::operator=(const FragTrap& fragtrap)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "fragtrap destrcutor called" << std::endl;
+    std::cout << "FragTrap destrcutor called" << std::endl;
 }
 
 
 void    FragTrap::attack(const std::string& target)
 {
-    std::cout << "fragtrap " + Name + " attacks " + target + ", causing " <<  Attack << " points of damage!" << '\n';
+    std::cout << "FragTrap " + Name + " attacks " + target + ", causing " <<  Attack << " points of damage!" << '\n';
 }
 
 

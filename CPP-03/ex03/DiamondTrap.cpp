@@ -3,26 +3,22 @@
 //default constructor
 DiamondTrap::DiamondTrap()
 {
-    std::cout << "Default diamondtrap constructor called" << '\n';
+    std::cout << "Default DiamondTrap constructor called" << '\n';
 }
 
 //name constructor
 DiamondTrap::DiamondTrap(std::string n_name): ClapTrap(n_name + "_clap_name"), ScavTrap(50), FragTrap(100, 30), Name(n_name)
 {
-    std::cout << "diamondtrap name constructor called" << std::endl;
+    std::cout << "DiamondTrap name constructor called" << std::endl;
     Hit = FragTrap::Hit;
     Energy = ScavTrap::Energy;
     Attack= FragTrap::Attack;
-    std::cout << Hit << std::endl;
-    std::cout << Energy << std::endl;
-    std::cout << Attack << std::endl;
-
 }
 
 //copy constructor
 DiamondTrap::DiamondTrap(const FragTrap& fragtrap)
 {
-    std::cout << "diamondtrap copy constructor called" << '\n';
+    std::cout << "DiamondTrap copy constructor called" << '\n';
     *this = fragtrap;
 }
 
@@ -39,9 +35,8 @@ DiamondTrap    DiamondTrap::operator=(const DiamondTrap& diamondtrap)
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "diamondtrap destrcutor called" << std::endl;
+    std::cout << "DiamondTrap destrcutor called" << std::endl;
 }
-
 
 void    DiamondTrap::attack(const std::string& target)
 {
@@ -51,6 +46,6 @@ void    DiamondTrap::attack(const std::string& target)
 
 void    DiamondTrap::whoAmI()
 {
-    std::cout << "My name " << Name << std::endl;
-    std::cout << "ClapTrap name's " << ClapTrap::Name << std::endl;
+    std::cout << "My name is " << Name << std::endl;
+    std::cout << "ClapTrap name is " << ClapTrap::Name << std::endl;
 }

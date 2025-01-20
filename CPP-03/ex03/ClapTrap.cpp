@@ -3,19 +3,19 @@
 //default constructor
 ClapTrap::ClapTrap(): Hit(10), Energy(10), Attack(0)
 {
-    std::cout << "Default claptrap constructor called" << '\n';
+    std::cout << "Default ClapTrap constructor called" << '\n';
 }
 
 //destrucor
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Claptrap destructor called" << '\n';
+    std::cout << "ClapTrap destructor called" << '\n';
 }
 
 //copy constructor
 ClapTrap::ClapTrap(const ClapTrap& claptrap)
 {
-    std::cout << "Claptrap copy constructor called" << '\n';
+    std::cout << "ClapTrap copy constructor called" << '\n';
     *this = claptrap;
 }
 
@@ -33,7 +33,7 @@ ClapTrap    ClapTrap::operator=(const ClapTrap& claptrap)
 //name constructor
 ClapTrap::ClapTrap(std::string name): Name(name), Hit(10), Energy(10), Attack(0)
 {
-    std::cout << "Claptrap name constructor called" << '\n';
+    std::cout << "ClapTrap name constructor called" << '\n';
 }
 
 void    ClapTrap::attack(const std::string& target)

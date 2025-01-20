@@ -1,7 +1,7 @@
-SRC = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp DiamondTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADERS = FragTrap.hpp ClapTrap.hpp ScavTrap.hpp DiamondTrap.hpp 
-NAME = FragTrap
+HEADERS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp 
+NAME = diamondTrap
 FLAGS= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
