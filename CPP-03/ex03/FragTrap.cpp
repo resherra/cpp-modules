@@ -45,10 +45,15 @@ FragTrap::~FragTrap()
     std::cout << "FragTrap destrcutor called" << std::endl;
 }
 
-
 void    FragTrap::attack(const std::string& target)
 {
+    if (!Hit || !Energy)
+    {
+        std::cout << "Not enough Hit or Energy points, can't do anything!" << '\n';
+        return;
+    }
     std::cout << "FragTrap " + Name + " attacks " + target + ", causing " <<  Attack << " points of damage!" << '\n';
+    Energy--;
 }
 
 
