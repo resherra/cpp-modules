@@ -6,14 +6,6 @@ FragTrap::FragTrap()
     std::cout << "Default FragTrap constructor called" << '\n';
 }
 
-//hit / attack constructor
-FragTrap::FragTrap(int hit, int attack)
-{
-    std::cout << "FragTrap hit / attack -- constructor called" << std::endl;
-    Hit = hit;
-    Attack = attack;
-}
-
 FragTrap::FragTrap(std::string n_name): ClapTrap(n_name)
 {
     std::cout << "FragTrap name constructor called" << std::endl;

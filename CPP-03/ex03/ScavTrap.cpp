@@ -6,13 +6,7 @@ ScavTrap::ScavTrap()
     std::cout << "Default ScavTrap constructor called" << '\n';
 }
 
-//energy constructor
-ScavTrap::ScavTrap(int energy)
-{
-    Energy = energy;
-    std::cout << "Energy ScavTrap constructor called" << '\n';
-}
-
+//name constructor
 ScavTrap::ScavTrap(std::string n_name): ClapTrap(n_name)
 {
     std::cout << "ScavTrap name constructor called" << std::endl;

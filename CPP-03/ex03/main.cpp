@@ -8,4 +8,5 @@ int main()
     diamondtrap.highFivesGuys();
     diamondtrap.guardGate();
     diamondtrap.whoAmI();
+
 }

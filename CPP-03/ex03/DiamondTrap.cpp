@@ -7,12 +7,10 @@ DiamondTrap::DiamondTrap()
 }
 
 //name constructor
-DiamondTrap::DiamondTrap(std::string n_name): ClapTrap(n_name + "_clap_name"), ScavTrap(50), FragTrap(100, 30), Name(n_name)
+DiamondTrap::DiamondTrap(std::string n_name): ClapTrap(n_name + "_clap_name"), ScavTrap(n_name), FragTrap(n_name), Name(n_name)
 {
     std::cout << "DiamondTrap name constructor called" << std::endl;
-    Hit = FragTrap::Hit;
-    Energy = ScavTrap::Energy;
-    Attack= FragTrap::Attack;
+    Energy = 50;
 }
 
 //copy constructor
