@@ -3,13 +3,22 @@
 //default constructor
 ScavTrap::ScavTrap()
 {
+    Hit = 100;
+    Energy = 50;
+    Attack= 20;
     std::cout << "Default ScavTrap constructor called" << '\n';
+}
+
+//energy constructor
+ScavTrap::ScavTrap(int energy)
+{
+    Energy = energy;
 }
 
 //name constructor
 ScavTrap::ScavTrap(std::string n_name): ClapTrap(n_name)
 {
-    std::cout << "Scavtrap name constructor called" << std::endl;
+    std::cout << "ScavTrap name constructor called" << std::endl;
     Hit = 100;
     Energy = 50;
     Attack= 20;

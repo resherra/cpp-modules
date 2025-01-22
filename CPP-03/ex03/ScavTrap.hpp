@@ -15,6 +15,7 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap(const ScavTrap&);
         ~ScavTrap();
 
+        ScavTrap(int);
         ScavTrap(std::string);
 };
 

@@ -3,7 +3,18 @@
 //default constructor
 FragTrap::FragTrap()
 {
+    Hit = 100;
+    Energy = 100;
+    Attack= 30;
     std::cout << "Default FragTrap constructor called" << '\n';
+}
+
+
+// hit / attack constrcutor
+FragTrap::FragTrap(int hit, int attack)
+{
+    Hit = hit;
+    Attack = attack;
 }
 
 FragTrap::FragTrap(std::string n_name): ClapTrap(n_name)
@@ -47,6 +58,8 @@ void    FragTrap::attack(const std::string& target)
     std::cout << "FragTrap " + Name + " attacks " + target + ", causing " <<  Attack << " points of damage!" << '\n';
     Energy--;
 }
+
+
 
 void    FragTrap::highFivesGuys(void)
 {
