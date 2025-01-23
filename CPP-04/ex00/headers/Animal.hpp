@@ -1,8 +1,7 @@
 #ifndef animal_hpp
 #define animal_hpp
 
-#include <string>
-#include <iostream>
+#include "utils.hpp"
 
 class Animal
 {
@@ -20,6 +19,5 @@ class Animal
         std::string type;
 };
 
-void    print(std::string);
 
 #endif

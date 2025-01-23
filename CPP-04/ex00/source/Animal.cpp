@@ -1,11 +1,5 @@
 #include "../headers/Animal.hpp"
 
-
-void    print(std::string string)
-{
-    std::cout << string << "\n";
-}
-
 //default constructor
 Animal::Animal(): type("animal")
 {
