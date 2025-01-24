@@ -13,14 +13,20 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
+    delete meta;
+    delete j;
+    delete i;
 
     print("----wrong animal----");
     const WrongAnimal* wrong_meta = new WrongAnimal();
     const WrongAnimal* wrong_i = new WrongCat();
 
-    std::cout << wrong_i->getType() << " " << std::endl;
-    wrong_i->makeSound(); //will output the cat sound!
+
+    wrong_i->makeSound();
     wrong_meta->makeSound();
+
+    delete wrong_meta;
+    delete wrong_i;
 
     return 0;
 }

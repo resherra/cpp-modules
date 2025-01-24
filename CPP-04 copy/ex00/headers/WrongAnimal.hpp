@@ -14,7 +14,7 @@ class WrongAnimal
         WrongAnimal(const WrongAnimal&);
 
         WrongAnimal();
-        virtual ~WrongAnimal();
+        ~WrongAnimal();
     protected:
         std::string type;
 };
