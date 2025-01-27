@@ -20,9 +20,10 @@ WrongCat::WrongCat(const WrongCat& other)
 }
 
 // copy assignment operator
-WrongCat  WrongCat::operator=(const WrongCat& other)
+WrongCat&  WrongCat::operator=(const WrongCat& other)
 {
-    type = other.type;
+    if (this != &other)
+        type = other.type;
     return *this;
 }
 

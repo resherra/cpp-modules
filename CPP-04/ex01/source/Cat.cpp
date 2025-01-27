@@ -3,31 +3,49 @@
 //default constructor
 Cat::Cat()
 {
-    type = "Cat";
     print("Cat default constrcutor!");
+    type = "Cat";
+    brain = new Brain();
 }
 
 //destructor
 Cat::~Cat()
 {
     print("Cat default destructor!");
+    delete brain;
 }
+
+void    Cat::deepCopy(const Cat& other)
+{
+    delete  brain;
+
+    type = other.type;
+
+    if (other.brain)
+    {
+        brain = new Brain(*other.brain);
+    }
+    else
+        brain = nullptr;
+}
+
 
 //copy constructor
 Cat::Cat(const Cat& other)
 {
-    *this = other;
+    print("Cat copy constructor!");
+    deepCopy(other);
 }
 
 // copy assignment operator
 Cat&  Cat::operator=(const Cat& other)
 {
     if (this != &other)
-        type = other.type;
+       deepCopy(other);
     return *this;
 }
 
 void    Cat::makeSound() const
 {
-    print("meow");    
+    print("barking");    
 }

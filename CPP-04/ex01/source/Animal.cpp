@@ -19,9 +19,10 @@ Animal::Animal(const Animal& other)
 }
 
 // copy assignment operator
-Animal  Animal::operator=(const Animal& other)
+Animal&  Animal::operator=(const Animal& other)
 {
-    type = other.type;
+    if (this != &other)
+        type = other.type;
     return *this;
 }
 

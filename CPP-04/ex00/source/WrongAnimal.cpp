@@ -19,9 +19,10 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other)
 }
 
 // copy assignment operator
-WrongAnimal  WrongAnimal::operator=(const WrongAnimal& other)
+WrongAnimal&  WrongAnimal::operator=(const WrongAnimal& other)
 {
-    type = other.type;
+    if (this != &other)
+        type = other.type;
     return *this;
 }
 

@@ -9,7 +9,7 @@ class WrongAnimal
         void            makeSound() const;
         std::string     getType() const;
 
-        WrongAnimal  operator=(const WrongAnimal&);
+        WrongAnimal&  operator=(const WrongAnimal&);
 
         WrongAnimal(const WrongAnimal&);
 
