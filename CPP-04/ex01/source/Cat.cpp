@@ -25,13 +25,11 @@ void    Cat::deepCopy(const Cat& other)
     {
         brain = new Brain(*other.brain);
     }
-    else
-        brain = nullptr;
 }
 
 
 //copy constructor
-Cat::Cat(const Cat& other)
+Cat::Cat(const Cat& other): Animal()
 {
     print("Cat copy constructor!");
     deepCopy(other);

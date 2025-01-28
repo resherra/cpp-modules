@@ -14,7 +14,7 @@ class Dog: public Animal
         Dog(const Dog&);
 
         Dog();
-        ~Dog();
+        virtual ~Dog();
     private:
         Brain   *brain;
         void    deepCopy(const Dog&);

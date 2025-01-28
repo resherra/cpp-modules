@@ -2,11 +2,12 @@
 #include "../headers/Cat.hpp"
 
 int main()
-{
-    Dog basic;
-    print("---");
+{   
+    Animal* animals[4] = { new Cat(), new Dog(), new Cat(), new Dog()};
+
+    for (int i = 0; i < 4; i++)
     {
-        Dog tmp(basic);
+        print("--");
+        delete animals[i]; 
     }
-    print("---");
 }
