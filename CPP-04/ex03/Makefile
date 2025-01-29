@@ -1,7 +1,7 @@
-SRC = source/main.cpp source/AMateria.cpp
+SRC = source/AMateria.cpp source/Cure.cpp source/Ice.cpp source/main.cpp source/utils.cpp source/Character.cpp source/MateriaSource.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADERS = headers/AMateria.hpp
-NAME = interface
+HEADERS = headers/AMateria.hpp headers/Cure.hpp headers/Ice.hpp headers/ICharacter.hpp headers/utils.hpp headers/Character.hpp headers/MateriaSource.hpp
+NAME = interfaces
 FLAGS= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

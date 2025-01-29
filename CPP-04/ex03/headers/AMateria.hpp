@@ -1,17 +1,19 @@
 #ifndef a_materia_hpp
 #define a_materia_hpp
 
-#include <string>
+class AMateria;
+
+#include "utils.hpp"
 #include "ICharacter.hpp"
 
 class AMateria
 {
     public:
-        std::string const & getType() const; //Returns the materia type
-        virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
+        std::string const&  getType() const; //Returns the materia type
+        virtual AMateria*   clone() const = 0;
+        virtual void        use(ICharacter& target);
 
-        AMateria&   operator=(AMateria&);
+        AMateria&           operator=(const AMateria&);
 
         AMateria();
         AMateria(const AMateria&);
