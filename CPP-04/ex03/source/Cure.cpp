@@ -15,7 +15,7 @@ Cure::Cure(): AMateria("cure")
     print("Cure default constructor!");
 }
 
-Cure::Cure(const Cure& other)
+Cure::Cure(const Cure& other): AMateria("cure")
 {
     (void)other;
     print("Cure copy constructor");

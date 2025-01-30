@@ -5,17 +5,28 @@
 
 
 int main()
-{   
-    Ice testing;
-    Cure joe;
-    Character character("redouan");
-
-    
+{
+    Character*   jack = new Character("jack");
+    AMateria*    a = new Ice;
+    AMateria*    b = new Cure;
 
 
-    std::cout << "--" << std::endl;
-    // print(testing.getType());
-    testing.use(character);
-    joe.use(character);
-    std::cout << "--" << std::endl;
+    jack->equip(a);
+    jack->equip(b);
+    jack->unequip(0);
+    jack->unequip(1);
+
+
+    Node*   curr = jack->left.head;
+
+
+    std::cout << "--"<< std::endl;
+    while (curr)
+    {
+        std::cout << curr->materia->getType() << std::endl;
+        curr = curr->next;
+    }
+    std::cout << "--"<< std::endl;
+
+
 }

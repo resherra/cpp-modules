@@ -3,5 +3,5 @@
 void    print(std::string str)
 {
     (void)str;
-    // std::cout << str << "\n";
+    std::cout << str << "\n";
 }

@@ -15,7 +15,7 @@ Ice::Ice(): AMateria("ice")
     print("Ice default constructor!");
 }
 
-Ice::Ice(const Ice& other)
+Ice::Ice(const Ice& other): AMateria("ice")
 {
     print("Ice copy constructor");
     (void)other;

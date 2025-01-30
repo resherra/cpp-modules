@@ -2,6 +2,8 @@
 #define character_hpp
 
 #include "ICharacter.hpp"
+#include "MateriasList.hpp"
+
 
 class Character: public ICharacter
 {
@@ -17,6 +19,8 @@ class Character: public ICharacter
         Character(std::string);
         Character(const Character&);
         ~Character();
+        MateriasList    left;
+    
     private:
         std::string name;
         AMateria*   inventory[4];

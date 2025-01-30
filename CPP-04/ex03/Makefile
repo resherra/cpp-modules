@@ -1,6 +1,6 @@
-SRC = source/AMateria.cpp source/Cure.cpp source/Ice.cpp source/main.cpp source/utils.cpp source/Character.cpp source/MateriaSource.cpp
+SRC = source/AMateria.cpp source/Cure.cpp source/Ice.cpp source/main.cpp source/utils.cpp source/Character.cpp source/MateriaSource.cpp source/MateriasList.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADERS = headers/AMateria.hpp headers/Cure.hpp headers/Ice.hpp headers/ICharacter.hpp headers/utils.hpp headers/Character.hpp headers/MateriaSource.hpp
+HEADERS = headers/AMateria.hpp headers/Cure.hpp headers/Ice.hpp headers/ICharacter.hpp headers/utils.hpp headers/Character.hpp headers/MateriaSource.hpp headers/MateriasList.hpp
 NAME = interfaces
 FLAGS= -Wall -Wextra -Werror -std=c++98
 

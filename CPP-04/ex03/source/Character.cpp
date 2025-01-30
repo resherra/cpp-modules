@@ -9,12 +9,32 @@ std::string const & Character::getName() const
 
 void    Character::equip(AMateria* m)
 {
-    (void)m;
+    if (!m)
+        return;
+    for (int i = 0; i < 4; i++)
+    {
+        if (!inventory[i])
+        {
+            inventory[i] = m;
+            return;
+        }
+    }
+    print("can't equip more materias!");
 }
 
 void    Character::unequip(int idx)
 {
-    (void)idx;
+    if (idx < 0 && idx > 3)
+    {
+        left.add(inventory[idx]);
+        inventory[idx] = NULL;
+        //do something
+    }
+    else
+    {
+        print("Invalid materia inventory entry!");
+        return;    
+    }
 }
 
 void    Character::use(int idx, ICharacter& target)
@@ -23,34 +43,62 @@ void    Character::use(int idx, ICharacter& target)
         inventory[idx]->use(target);
     else
     {
-        print("invalud materia inventory entry!");
+        print("Invalid materia inventory entry!");
         return;    
     }
 }
 
+//default constructor
 Character::Character()
 {
     print("Character default constructor!");
+    for (int i = 0; i < 4; i++)
+        inventory[i] = NULL;
 }
 
+// name constructor
 Character::Character(std::string _name): name(_name)
-{}
+{
+    for (int i = 0; i < 4; i++)
+        inventory[i] = NULL;
+}
 
+//assignment operator
 Character&  Character::operator=(const Character& other)
 {
-    (void)other;
+    name = other.name;
+    for (int i = 0; i < 4; i++)
+    {
+        if (other.inventory[i])
+        {
+            delete inventory[i];
+            inventory[i] = other.inventory[i]->clone();
+        }
+    }
+
     return *this;
-    // deep copy;
 }
 
+//copy constructor
 Character::Character(const Character& other)
 {
-    (void)other;
-    //deep copy;
+    if (this != &other)
+    {
+        name = other.name;
+        for (int i = 0; i < 4; i++)
+        {
+            if (inventory[i])
+                inventory[i] = other.inventory[i]->clone();
+            else
+                inventory[i] = NULL;
+        }
+    } 
 }
 
+//destructor
 Character::~Character()
 {
     print("Character default destructor!");
+    for (int i = 0; i < 4; i++)
+        delete inventory[i];
 }
-

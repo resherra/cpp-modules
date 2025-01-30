@@ -14,6 +14,8 @@ class MateriaSource:  public IMateriaSource
         MateriaSource();
         MateriaSource(const MateriaSource&);
         ~MateriaSource();
+    private:
+        AMateria*   inventory[4];
 };
 
 
