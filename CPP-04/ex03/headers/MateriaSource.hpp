@@ -6,8 +6,8 @@
 class MateriaSource:  public IMateriaSource
 {
     public:
-        void        learnMateria(AMateria*);
-        AMateria*   createMateria(std::string const & type);
+        void            learnMateria(AMateria*);
+        AMateria*       createMateria(std::string const & type);
 
         MateriaSource&  operator=(const MateriaSource&);
 
@@ -15,7 +15,7 @@ class MateriaSource:  public IMateriaSource
         MateriaSource(const MateriaSource&);
         ~MateriaSource();
     private:
-        AMateria*   inventory[4];
+        AMateria*       inventory[4];
 };
 
 

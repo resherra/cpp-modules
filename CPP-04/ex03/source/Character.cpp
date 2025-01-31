@@ -1,7 +1,6 @@
 #include "../headers/Character.hpp"
 #include "../headers/utils.hpp"
 
-
 std::string const & Character::getName() const
 {
     return name;
@@ -24,27 +23,28 @@ void    Character::equip(AMateria* m)
 
 void    Character::unequip(int idx)
 {
-    if (idx < 0 && idx > 3)
-    {
-        left.add(inventory[idx]);
-        inventory[idx] = NULL;
-        //do something
-    }
-    else
+    if (idx < 0 || idx > 3)
     {
         print("Invalid materia inventory entry!");
         return;    
+    }
+    else
+    {
+        left->add(inventory[idx]);
+        inventory[idx] = NULL;
     }
 }
 
 void    Character::use(int idx, ICharacter& target)
 {
-    if (idx < 0 && idx > 3)
-        inventory[idx]->use(target);
-    else
+    if (idx < 0 || idx > 3)
     {
         print("Invalid materia inventory entry!");
-        return;    
+        return;
+    }
+    else
+    {
+        inventory[idx]->use(target);
     }
 }
 
@@ -54,13 +54,16 @@ Character::Character()
     print("Character default constructor!");
     for (int i = 0; i < 4; i++)
         inventory[i] = NULL;
+    left = new MateriasList;
 }
 
 // name constructor
 Character::Character(std::string _name): name(_name)
 {
+    print("Character name constructor!");
     for (int i = 0; i < 4; i++)
         inventory[i] = NULL;
+    left = new MateriasList;
 }
 
 //assignment operator
@@ -87,7 +90,7 @@ Character::Character(const Character& other)
         name = other.name;
         for (int i = 0; i < 4; i++)
         {
-            if (inventory[i])
+            if (other.inventory[i])
                 inventory[i] = other.inventory[i]->clone();
             else
                 inventory[i] = NULL;
@@ -98,7 +101,8 @@ Character::Character(const Character& other)
 //destructor
 Character::~Character()
 {
-    print("Character default destructor!");
+    print("Character destructor!");
     for (int i = 0; i < 4; i++)
         delete inventory[i];
+    delete left;
 }

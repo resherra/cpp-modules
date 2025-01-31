@@ -1,6 +1,5 @@
 #include "../headers/AMateria.hpp"
 
-
 std::string const& AMateria::getType() const
 {
     return type;
@@ -8,12 +7,12 @@ std::string const& AMateria::getType() const
 
 void    AMateria::use(ICharacter& target)
 {
-    (void)target;
+    std::cout << "Raw Materia used!" << target.getName() << std::endl;
 }
 
 AMateria::AMateria(std::string const & type): type(type)
 {
-    print("AMateria name constructor!");
+    print("AMateria type constructor!");
 }
 
 AMateria::AMateria()
@@ -35,6 +34,5 @@ AMateria&    AMateria::operator=(const AMateria& other)
 
 AMateria::~AMateria()
 {
-    print("AMateria default destrcutor!");
+    print("AMateria destrcutor");
 }
-

@@ -17,8 +17,8 @@ Ice::Ice(): AMateria("ice")
 
 Ice::Ice(const Ice& other): AMateria("ice")
 {
-    print("Ice copy constructor");
     (void)other;
+    print("Ice copy constructor");
 } 
 
 Ice&    Ice::operator=(const Ice& other)
@@ -29,5 +29,5 @@ Ice&    Ice::operator=(const Ice& other)
 
 Ice::~Ice()
 {
-    print("Ice default destrcutor!");
+    print("Ice destrcutor!");
 }

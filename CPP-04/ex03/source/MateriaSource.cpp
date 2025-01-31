@@ -26,11 +26,10 @@ AMateria*   MateriaSource::createMateria(std::string const& type)
     return 0;
 }
 
-
 //default constructor
 MateriaSource::MateriaSource()
 {
-    print("Materia source default constructor!");
+    print("MateriaSource default constructor!");
     for (int i = 0; i < 4; i++)
         inventory[i] = NULL;
 }
@@ -38,12 +37,16 @@ MateriaSource::MateriaSource()
 
 MateriaSource&  MateriaSource::operator=(const MateriaSource& other)
 {
+    print("MateriaSource copy assignment operator!");
     if (this != &other)
     {
         for (int i = 0; i < 4; i++)
         {
-            delete inventory[i];
-            inventory[i] = other.inventory[i]->clone();
+            if (other.inventory[i])
+            {
+                delete inventory[i];
+                inventory[i] = other.inventory[i]->clone();
+            }
         }
     }
     return *this;
@@ -51,7 +54,7 @@ MateriaSource&  MateriaSource::operator=(const MateriaSource& other)
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
-    print("Materia source copy constructor!");
+    print("MateriaSource copy constructor!");
     for (int i = 0; i < 4; i++)
     {
         if (other.inventory[i])
@@ -64,7 +67,7 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 
 MateriaSource::~MateriaSource()
 {
-    print("Materia source default destructor!");
+    print("MateriaSource default destructor!");
     for (int i = 0; i < 4; i++)
         delete inventory[i];
 }

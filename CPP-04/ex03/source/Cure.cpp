@@ -7,7 +7,7 @@ AMateria*   Cure::clone() const
 
 void    Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << " ’s wounds *" << "\n";
+    std::cout << "* heals " << target.getName() << "'s wounds *" << "\n";
 }
 
 Cure::Cure(): AMateria("cure")
@@ -17,8 +17,8 @@ Cure::Cure(): AMateria("cure")
 
 Cure::Cure(const Cure& other): AMateria("cure")
 {
-    (void)other;
     print("Cure copy constructor");
+    (void)other;
 } 
 
 Cure&    Cure::operator=(const Cure& other)
@@ -29,5 +29,5 @@ Cure&    Cure::operator=(const Cure& other)
 
 Cure::~Cure()
 {
-    print("Cure default destrcutor!");
+    print("Cure destrcutor!");
 }
