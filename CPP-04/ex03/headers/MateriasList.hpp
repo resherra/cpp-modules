@@ -7,8 +7,9 @@
 class MateriasList
 {
     public:
-        Node*           head;
-        void            add(AMateria*);
+        Node*               head;
+        void                add(AMateria*);
+        MateriasList*       duplicate();
 
         MateriasList&   operator=(const MateriasList&);
 

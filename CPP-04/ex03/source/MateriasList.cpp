@@ -13,7 +13,20 @@ void    MateriasList::add(AMateria* materia)
     curr->next = new Node(materia);
 }
 
-MateriasList::MateriasList(): head(NULL)
+MateriasList*   MateriasList::duplicate()
+{
+    MateriasList* clone = new MateriasList;
+    Node* curr = head;
+
+    while (curr)
+    {
+        clone->add(curr->materia->clone());
+        curr = curr->next;
+    }
+    return clone;
+}
+
+MateriasList::MateriasList(): head(nullptr)
 {
     print("MateriasList default constrcutor!");
 }
@@ -21,13 +34,11 @@ MateriasList::MateriasList(): head(NULL)
 MateriasList::MateriasList(const MateriasList&)
 {
     print("MateriaList copy constrcutor");
-    //copy constrcutor
 }
-
 
 MateriasList&   MateriasList::operator=(const MateriasList&)
 {
-    //assignment operator
+    print("Materia list assignment operator!");
     return *this;
 }
 
@@ -36,12 +47,11 @@ MateriasList::~MateriasList()
     print("MateriaList destructor");
     Node* tmp = head;
     Node *cur;
-
     while (tmp)
     {
         cur = tmp;
         tmp = tmp->next;
         delete cur;
-        cur = NULL;
+        cur = nullptr;
     }
 }

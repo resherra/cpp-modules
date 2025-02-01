@@ -44,7 +44,8 @@ void    Character::use(int idx, ICharacter& target)
     }
     else
     {
-        inventory[idx]->use(target);
+        if (inventory[idx])
+            inventory[idx]->use(target);
     }
 }
 
@@ -74,11 +75,15 @@ Character&  Character::operator=(const Character& other)
     {
         if (other.inventory[i])
         {
-            delete inventory[i];
+            if (inventory[i])
+                delete inventory[i];
             inventory[i] = other.inventory[i]->clone();
         }
-    }
-
+        else
+            inventory[i] = nullptr;
+    }    
+    delete left;
+    left = other.left->duplicate();
     return *this;
 }
 
@@ -93,9 +98,10 @@ Character::Character(const Character& other)
             if (other.inventory[i])
                 inventory[i] = other.inventory[i]->clone();
             else
-                inventory[i] = NULL;
+                inventory[i] = nullptr;
         }
-    } 
+        left = other.left->duplicate();
+    }
 }
 
 //destructor

@@ -1,30 +1,28 @@
 #include "../headers/Node.hpp"
 
-Node::Node()
+Node::Node(): materia(nullptr), next(nullptr)
 {
     print("Node default constructor!");
-    materia = NULL;
 }
 
 Node&   Node::operator=(const Node& other)
 {
-    //copy ass operator;
     (void)other;
+    print("Node copy assignment operator");
     return *this;
 }
 
 Node::Node(const Node& other)
 {
-    print("Node copy constructor!");
     (void)other;
-    //copy constructor
+    print("Node copy constructor!");
 }
 
 Node::Node(AMateria* materia)
 {
     print("Node materia constructor");
     this->materia = materia;
-    next = NULL;
+    next = nullptr;
 }
 
 Node::~Node()

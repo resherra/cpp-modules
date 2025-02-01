@@ -12,6 +12,7 @@ void    MateriaSource::learnMateria(AMateria* materia)
             return;
         }
     }
+    delete materia;
 }
 
 AMateria*   MateriaSource::createMateria(std::string const& type)
@@ -44,9 +45,12 @@ MateriaSource&  MateriaSource::operator=(const MateriaSource& other)
         {
             if (other.inventory[i])
             {
-                delete inventory[i];
+                if (inventory[i])
+                    delete inventory[i];
                 inventory[i] = other.inventory[i]->clone();
             }
+            else
+                inventory[i] = nullptr;
         }
     }
     return *this;
@@ -60,7 +64,7 @@ MateriaSource::MateriaSource(const MateriaSource& other)
         if (other.inventory[i])
             inventory[i] = other.inventory[i]->clone();
         else
-            inventory[i] = NULL;
+            inventory[i] = nullptr;
     }
 }
 
