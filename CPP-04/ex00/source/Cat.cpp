@@ -29,5 +29,5 @@ Cat&  Cat::operator=(const Cat& other)
 
 void    Cat::makeSound() const
 {
-    print("meow");    
+    print("meowing");    
 }

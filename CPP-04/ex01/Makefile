@@ -2,7 +2,7 @@ SRC = source/main.cpp source/utils.cpp source/Animal.cpp source/Dog.cpp source/C
 OBJ = $(SRC:.cpp=.o)
 HEADERS = headers/Animal.hpp headers/Dog.hpp headers/Cat.hpp headers/Brain.hpp
 NAME = poly
-FLAGS= -Wall -Wextra -Werror -std=c++98
+FLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 all: $(NAME)
 

@@ -6,6 +6,7 @@
 class Brain
 {
     public:
+        std::string ideas[100];
         void    makeSound() const;
 
         Brain&  operator=(const Brain&);
@@ -14,8 +15,6 @@ class Brain
 
         Brain();
         ~Brain();
-    private:
-        std::string ideas[100];
 };
 
 #endif

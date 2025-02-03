@@ -14,7 +14,7 @@ class Cat: public Animal
         Cat(const Cat&);
 
         Cat();
-        virtual ~Cat();
+        ~Cat();
     private:
         Brain *brain;
         void    deepCopy(const Cat&);

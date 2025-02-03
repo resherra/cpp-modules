@@ -20,19 +20,15 @@ void    Cat::deepCopy(const Cat& other)
     delete  brain;
 
     type = other.type;
-
-    if (other.brain)
-    {
-        brain = new Brain(*other.brain);
-    }
+    brain = new Brain(*other.brain);
 }
-
 
 //copy constructor
 Cat::Cat(const Cat& other): Animal()
 {
     print("Cat copy constructor!");
-    deepCopy(other);
+    type = other.type;
+    brain = new Brain(*other.brain);
 }
 
 // copy assignment operator
@@ -45,5 +41,5 @@ Cat&  Cat::operator=(const Cat& other)
 
 void    Cat::makeSound() const
 {
-    print("barking");    
+    print("meowing");    
 }
