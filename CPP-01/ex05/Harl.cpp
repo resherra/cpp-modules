@@ -3,10 +3,10 @@
 
 Harl::Harl()
 {
-    a[0] = &Harl::debug;
-    a[1] = &Harl::info;
-    a[2] = &Harl::warning;
-    a[3] = &Harl::error;
+    ptr[0] = &Harl::debug;
+    ptr[1] = &Harl::info;
+    ptr[2] = &Harl::warning;
+    ptr[3] = &Harl::error;
 }
 
 void print(std::string complain)
@@ -45,5 +45,5 @@ void    Harl::complain(std::string state)
     }
     if (i == 4)
         return;
-    (this->*a[i])();
+    (this->*ptr[i])();
 }

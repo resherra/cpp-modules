@@ -6,9 +6,8 @@
 class Harl {
     public:
         void    complain(std::string level);
-        typedef void   (Harl::*ptr)(void);
-        ptr a[4];
-        
+        void   (Harl::*ptr[4])(void);
+
         Harl();
     private:
         void    debug(void);
