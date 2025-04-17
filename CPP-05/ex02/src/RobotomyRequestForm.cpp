@@ -12,13 +12,15 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &other) : AForm(other), flag(false)
 {
+    *this = other;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &other)
 {
     if (this != &other)
     {
-        // something;
+        target = other.target;
+        flag = other.flag;
     }
     return *this;
 }

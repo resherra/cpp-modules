@@ -12,14 +12,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &other): AForm(other)
 {
+    *this = other;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &other)
 {
     if (this != &other)
-    {
-        // something;
-    }
+        target = other.target;
     return *this;
 }
 

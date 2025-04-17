@@ -12,14 +12,13 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &other) : AForm(other)
 {
+    *this = other;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &other)
 {
     if (this != &other)
-    {
-        // something;
-    }
+        target = other.target;
     return *this;
 }
 
