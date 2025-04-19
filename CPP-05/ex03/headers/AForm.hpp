@@ -5,13 +5,13 @@ class AForm;
 
 #include "Bureaucrat.hpp"
 
+std::ostream &operator<<(std::ostream &, AForm const &);
+
 class NotSignedException : public std::exception
 {
 public:
     const char *what() const throw();
 };
-
-std::ostream &operator<<(std::ostream &, AForm const &);
 
 class AForm
 {
@@ -35,7 +35,7 @@ private:
     const std::string name;
     const int req_to_sign;
     const int req_to_exec;
-    bool is_signed;
+    bool        is_signed;
 
     // exceptions
     GradeTooHighException gradeTooHigh;

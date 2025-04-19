@@ -1,10 +1,5 @@
 #include "Form.hpp"
 
-static void print(std::string message)
-{
-    (void)message;
-    // std::cout << message << std::endl;
-}
 
 // output operator
 std::ostream &operator<<(std::ostream &os, Form &form)
@@ -21,19 +16,16 @@ std::ostream &operator<<(std::ostream &os, Form &form)
 // default constructor
 Form::Form() : name("Unknown"), req_to_sign(1), req_to_exec(1), is_signed(false)
 {
-    print("Form default constructor");
 }
 
 // default destructor
 Form::~Form()
 {
-    print("Form default destructor");
 }
 
 // copy constructor
 Form::Form(Form &other) : name(other.name), req_to_sign(other.req_to_sign), req_to_exec(other.req_to_exec)
 {
-    print("Form copy constructor");
     *this = other;
 }
 
@@ -55,7 +47,6 @@ Form::Form(std::string name, int req_to_sign, int req_to_exec) : name(name), req
         throw gradeTooHigh;
     else if (req_to_sign > 150 || req_to_exec > 150)
         throw gradeTooLow;
-    print("infos constructor");
 }
 
 // getters

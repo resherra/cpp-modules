@@ -1,11 +1,9 @@
 #include "../headers/ShrubberyCreationForm.hpp"
 
-// default constructor
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
 {
 }
 
-// destructor
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }

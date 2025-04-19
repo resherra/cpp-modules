@@ -1,11 +1,9 @@
 #include "../headers/PresidentialPardonForm.hpp"
 
-// default constructor
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5)
 {
 }
 
-// destructor
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }

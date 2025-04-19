@@ -1,11 +1,9 @@
 #include "../headers/RobotomyRequestForm.hpp"
 
-// default constructor
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), flag(false)
 {
 }
 
-// destructor
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }

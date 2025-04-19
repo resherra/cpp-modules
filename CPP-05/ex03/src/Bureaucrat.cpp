@@ -1,11 +1,5 @@
 #include "../headers/Bureaucrat.hpp"
 
-static void print(std::string message)
-{
-    (void)message;
-    // std::cout << message << '\n';
-}
-
 const char *GradeTooHighException::what() const throw()
 {
     return "Grade too high";
@@ -19,7 +13,6 @@ const char *GradeTooLowException::what() const throw()
 // default constrcutor
 Bureaucrat::Bureaucrat() : grade(150), name("incognito")
 {
-    print("Bureaucrat default constructor");
 }
 
 // copy constructor
@@ -41,12 +34,10 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat &other)
 // default destructor
 Bureaucrat::~Bureaucrat()
 {
-    print("Bureaucrat default destructor");
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-    print("Bureaucrat grade constructor");
     if (grade > 150)
         throw gradeTooLow;
     else if (grade < 1)

@@ -3,19 +3,25 @@
 void    foo()
 {
     std::cout << std::endl;
-    system("leaks -q bs");
+    std::system("leaks -q intern");
 }
 
 int    main()
 {
-    // atexit(foo);
+    std::atexit(foo);
     Intern intern;
+    Bureaucrat  manager("jack", 1);
+
     AForm *form = intern.makeForm("Shrubbery Creation", "testing");
 
-    (void)form;
-    // Bureaucrat  manager("jack", 1);
+    if (form)
+    {
+        std::cout << std::endl;
+        manager.signForm(*form);
 
+        std::cout << std::endl;
+        manager.executeForm(*form);
 
-
-    // manager.signForm(*form);
-}   
+        delete (form);
+    }
+}

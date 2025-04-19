@@ -1,8 +1,6 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include "AForm.hpp"
-#include <fstream>
 #include "../headers/ShrubberyCreationForm.hpp"
 #include "../headers/RobotomyRequestForm.hpp"
 #include "../headers/PresidentialPardonForm.hpp"

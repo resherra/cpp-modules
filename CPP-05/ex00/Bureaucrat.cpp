@@ -13,7 +13,6 @@ const char* GradeTooLowException::what() const throw()
 //default constrcutor
 Bureaucrat::Bureaucrat(): grade(150), name("incognito")
 {
-    std::cout << "Bureaucrat default constructor" << '\n';
 }
 
 //copy constructor
@@ -35,12 +34,10 @@ Bureaucrat&    Bureaucrat::operator=(Bureaucrat& other)
 //default destructor
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat default destructor" << '\n';
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 {
-    std::cout << "Bureaucrat grade constructor" << '\n';
     if (grade > 150)
         throw   gradeTooLow;
     else if (grade < 1)

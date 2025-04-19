@@ -4,15 +4,24 @@ int main()
 {
     try
     {
-        Bureaucrat manager("jack", 1);
-        Form insurance("Insurance", 50, 50);
+        Form insurance("Insurance", 150, 150);
 
-        std::cout << manager;
-        manager.signForm(insurance);
+        try
+        {
+            Bureaucrat manager("jack", 1);
+            std::cout << manager;
+            manager.signForm(insurance);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << " to be assigned to such bureuacrat" << '\n';
+        }
+        
+
     }
     catch (const std::exception &e)
     {
-        std::cerr << e.what() << " to be assigned to such bureuacrat" << '\n';
+        std::cerr << e.what() << " for signing and/or excuting" << '\n';
     }
 
     std::cout << std::endl;

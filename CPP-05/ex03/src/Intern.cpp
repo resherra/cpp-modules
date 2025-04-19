@@ -1,11 +1,9 @@
 #include "../headers/Intern.hpp"
 
-// default constructor
 Intern::Intern()
 {
 }
 
-// destructor
 Intern::~Intern()
 {
 }

@@ -2,7 +2,6 @@
 #define RQF_hpp
 
 #include "AForm.hpp"
-#include <fstream>
 
 class RobotomyRequestForm : public AForm
 {
