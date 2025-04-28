@@ -1,7 +1,7 @@
-SRC = src/main.cpp src/ScalarConverter.cpp src/ConvertTypes.cpp src/CheckTypes.cpp
+SRC = src/main.cpp src/Serializer.cpp src/Data.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADERS = headers/ScalarConverter.hpp
-NAME = converter
+HEADERS = headers/Serializer.hpp headers/Data.hpp
+NAME = Serializer
 FLAGS= -Wall -Wextra -Werror -std=c++98  
 
 all: $(NAME)
