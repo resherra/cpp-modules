@@ -1,5 +1,40 @@
 #include "../headers/ScalarConverter.hpp"
 
+// ./convert nan
+// char: impossible
+// int: impossible
+// float: nanf
+// double: nan
+
+// ./convert nanf
+// char: impossible
+// int: impossible
+// float: nanf
+// double: nan
+
+// ./convert +inf
+// char: impossible
+// int: impossible
+// float: +inff
+// double: +inf
+
+// ./convert +inff
+// char: impossible
+// int: impossible
+// float: +inff
+// double: +inf
+
+// ./convert -inff
+// char: impossible
+// int: impossible
+// float: -inff
+// double: -inf
+
+// ./convert -inf
+// char: impossible
+// int: impossible
+// float: -inff
+// double: -inf
 
 // ./convert c
 // char: c
@@ -43,8 +78,6 @@
 // int: 42
 // float: 42.0f
 // double: 42.0
-
-
 
 int main(int ac, char **av)
 {

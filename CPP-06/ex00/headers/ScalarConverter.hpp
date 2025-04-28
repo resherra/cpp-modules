@@ -6,6 +6,17 @@
 #include <cstdlib>
 #include <iomanip>
 
+enum    Types
+{
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    INF,
+    NAN,
+    UNDEFINED
+};
+
 class   ScalarConverter
 {   
     public:
@@ -13,5 +24,11 @@ class   ScalarConverter
     private:
         ScalarConverter();
 };
+
+Types   get_type(std::string str);
+void    convert_char(std::string, Types);
+void    convert_int(std::string, Types);
+void    convert_float(std::string, Types);
+void    convert_double(std::string, Types);
 
 #endif

@@ -1,4 +1,4 @@
-SRC = src/main.cpp src/ScalarConverter.cpp
+SRC = src/main.cpp src/ScalarConverter.cpp src/ConvertTypes.cpp src/CheckTypes.cpp
 OBJ = $(SRC:.cpp=.o)
 HEADERS = headers/ScalarConverter.hpp
 NAME = convert
