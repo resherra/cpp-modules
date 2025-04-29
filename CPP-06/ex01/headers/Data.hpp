@@ -5,6 +5,8 @@ class Data
 {
     public:
         void    set_x(int);
+        int     get_x();
+    
 
         Data&   operator=(Data&);
 

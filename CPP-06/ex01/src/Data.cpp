@@ -25,3 +25,9 @@ void Data::set_x(int x)
     this->x = x;
 }
 
+int Data::get_x()
+{
+    return x;
+}
+
+
