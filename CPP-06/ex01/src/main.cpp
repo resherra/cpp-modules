@@ -1,16 +1,16 @@
 #include "../headers/Serializer.hpp"
 
+static void    foo(uintptr_t ptr_address)
+{
+    std::cout << "deserialized poitner: ";
+    std::cout << Serializer::deserialize(ptr_address) << std::endl;
+}
+
 int main()
 {
     Data data;
 
     data.set_x(5);
-
-    std::cout << "x --> " << data.get_x() << std::endl;
-
     std::cout << "original pointer: " << &data << std::endl;
-    std::cout << "deserialize return: " << Serializer::deserialize(Serializer::serialize(&data)) << std::endl;
-
-
-    std::cout << "x --> " << data.get_x() << std::endl;
+    foo(Serializer::serialize(&data));
 }
