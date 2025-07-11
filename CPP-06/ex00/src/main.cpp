@@ -1,5 +1,7 @@
 #include "../headers/ScalarConverter.hpp"
 
+// [examples]
+
 // ./convert nan
 // char: impossible
 // int: impossible

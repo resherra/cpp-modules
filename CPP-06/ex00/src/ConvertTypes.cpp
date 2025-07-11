@@ -53,7 +53,7 @@ void convert_float(std::string str, Types type)
     {
         if (str[0] == '+')
             std::cout << "+";
-        std::cout << std::fixed << std::setprecision(1) << std::atof(str.c_str()) << "f";
+        std::cout << std::atof(str.c_str()) << "f";
     }
     else
         std::cout << std::fixed << std::setprecision(1) << std::atof(str.c_str()) << "f";

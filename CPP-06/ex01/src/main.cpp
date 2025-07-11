@@ -4,6 +4,7 @@ static void    foo(uintptr_t ptr_address)
 {
     std::cout << "deserialized poitner: ";
     std::cout << Serializer::deserialize(ptr_address) << std::endl;
+    std::cout << "value: " << Serializer::deserialize(ptr_address)->get_x() << std::endl;
 }
 
 int main()

@@ -14,8 +14,3 @@ void    ScalarConverter::convert(char* str)
     convert_float(str, type);
     convert_double(str, type);
 }
-
-ScalarConverter::ScalarConverter()
-{
-    std::cout << "testing constructor" << std::endl;
-}
