@@ -14,9 +14,9 @@ int main()
     {
         easyfind<>(vec, 1);
     }
-    catch (char const* e)
+    catch(const std::exception& e)
     {
-        std::cerr << e << '\n';
+        std::cerr << e.what() << '\n';
     }
 
 
@@ -26,13 +26,14 @@ int main()
     list.push_back(2);
     list.push_back(3);
 
+
     try
     {
         easyfind<>(list, 55);
     }
-    catch (char const* e)
+    catch(const std::exception& e)
     {
-        std::cerr << e << '\n';
+        std::cerr << e.what() << '\n';
     }
 }
 
