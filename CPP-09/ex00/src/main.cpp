@@ -1,21 +1,20 @@
 #include "../headers/BitcoinExchange.hpp"
+#include "../headers/Dataset.hpp"
 
-#include <iostream>
+void    handleInput(int ac)
+{
+    if (ac != 2)
+    {
+        std::cerr << "Invalid arguments: ./btc filename" << "\n";
+        std::exit(0);
+    }
+}
 
-#include <algorithm>
-#include <string>
-#include <vector>
-#include <map>
-
-
-using namespace std;
-
-int main()
+int main(int ac, char **av)
 {   
-    map<int, std::string> a{{1, "jack"}, {9, "joe"}};
-
-    std::cout << a.at(3) << std::endl;
-
-
-
+    handleInput(ac);
+    BitcoinExchange btcex("data.csv");
+    btcex.loadData();
+    Dataset Dataset(av[1], btcex);
+    Dataset.readData();
 }

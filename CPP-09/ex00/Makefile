@@ -1,7 +1,7 @@
-SRC = src/main.cpp src/BitcoinExchange.cpp
+SRC = src/main.cpp src/BitcoinExchange.cpp src/Dataset.cpp
 OBJ = $(SRC:.cpp=.o)
-HEADERS = headers/BitcoinExchange.hpp
-NAME = btcexc
+HEADERS = headers/BitcoinExchange.hpp headers/Dataset.hpp
+NAME = btc
 FLAGS= -Wall -Wextra -Werror -std=c++98  
 
 all: $(NAME)
