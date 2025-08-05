@@ -34,6 +34,7 @@ void    BitcoinExchange::loadData()
         std::pair<std::string, float> pa(line.substr(0, pos), std::stof(line.substr(pos + 1).c_str()));
         exc.insert(pa);
     }
+    file.close();
 }
 
 std::map<std::string, float>&   BitcoinExchange::getExc()
