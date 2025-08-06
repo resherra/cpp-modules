@@ -1,5 +1,5 @@
-#ifndef dataset
-#define dataset
+#ifndef DATASET
+#define DATASET
 
 #include "BitcoinExchange.hpp"
 

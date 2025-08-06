@@ -1,5 +1,5 @@
-#ifndef btc_exc
-#define btc_exc
+#ifndef BTC_EXC
+#define BTC_EXC
 
 #include <fstream>
 #include <iostream>
