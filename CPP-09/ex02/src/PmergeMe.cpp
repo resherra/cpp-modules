@@ -4,7 +4,7 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::~PmergeMe(){}
 
-PmergeMe::PmergeMe(int ac): length(ac - 1) {}
+PmergeMe::PmergeMe(int ac): length(ac - 1)  {}
 
 PmergeMe::PmergeMe(const PmergeMe& other) 
 {
@@ -78,7 +78,9 @@ void    PmergeMe::sort()
         unsigned int second = vec[i + 1];
 
         if (first > second)
+        {
             std::swap(first, second);
+        }
         pairs.push_back(std::pair<unsigned int, unsigned int>(first, second));
     }
 
@@ -254,6 +256,18 @@ void    PmergeMe::printBefore()
 
 void    PmergeMe::display()
 {
+    int i = 0;
+    for (unsigned int i = 0; i < deq.size() - 1; i++)
+    {
+        if (deq[i] > deq[i + 1])
+        {
+            i++;
+            break;
+        }
+    }
+    if (!i)
+        std::cout << "\033[32mSorted successfully!" << std::endl;
+
     std::cout << "Time to process a range of " << std::fixed << std::setprecision(5) << length <<  " with std::vector: " << ttpv << " us" << std::endl; 
     std::cout << "Time to process a range of " << std::fixed << std::setprecision(5) << length <<  " with std::deque: " << ttpd << " us" << std::endl; 
 }
