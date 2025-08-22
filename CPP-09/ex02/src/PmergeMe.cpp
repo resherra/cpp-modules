@@ -1,10 +1,10 @@
 #include "../headers/PmergeMe.hpp"
 
-PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe(): dub_check(false) {}
 
 PmergeMe::~PmergeMe(){}
 
-PmergeMe::PmergeMe(int ac): length(ac - 1)  {}
+PmergeMe::PmergeMe(int ac) : length(ac - 1), dub_check(false) {}
 
 PmergeMe::PmergeMe(const PmergeMe& other) 
 {
@@ -17,8 +17,6 @@ PmergeMe&   PmergeMe::operator=(const PmergeMe& other)
     {
         vec = other.vec;
         deq = other.deq;
-        repeated = other.repeated;
-        to_print = other.to_print;
         length = other.length;
     }
     return *this;
@@ -104,22 +102,26 @@ void    PmergeMe::sort()
                 pendSet.push_back(pairs[i].first);
         }
     }
+
     if (left != -1)
         pendSet.push_back(left);
 
     std::vector<unsigned int> result = mainSet;
+
     if (!pendSet.empty())
         result.insert(result.begin(), pendSet[0]);
 
+
     std::vector<unsigned int> JacobS = JacobSeq(pendSet.size());
     JacobS = std::vector<unsigned int>(JacobS.begin() + 2, JacobS.end());
+    int count = 0;
     for (unsigned int i = 0; i < JacobS.size(); i++)
     {
         int index = JacobS[i];
         int j = index;
-
+        
         while (j > 0)
-        {   
+        {
             if (j > static_cast<int>(pendSet.size() - 1))
             {
                 j--;
@@ -127,9 +129,10 @@ void    PmergeMe::sort()
             }
             if (pendSet[j] != -1)
             {
-                std::vector<unsigned int>::iterator pos = std::lower_bound(result.begin(), result.end(), pendSet[j]);
+                std::vector<unsigned int>::iterator pos = std::lower_bound(result.begin(), result.begin() + count + j + 1, pendSet[j]);
                 result.insert(pos, pendSet[j]);
                 pendSet[j] = -1;
+                count++;
             }
             j--;
         }
@@ -184,6 +187,7 @@ void    PmergeMe::sortd()
 
     std::vector<unsigned int> JacobS = JacobSeq(pendSet.size());
     JacobS = std::vector<unsigned int>(JacobS.begin() + 2, JacobS.end());
+    int count = 0;
     for (unsigned int i = 0; i < JacobS.size(); i++)
     {
         int index = JacobS[i];
@@ -198,9 +202,10 @@ void    PmergeMe::sortd()
             }
             if (pendSet[j] != -1)
             {
-                std::deque<unsigned int>::iterator pos = std::lower_bound(result.begin(), result.end(), pendSet[j]);
+                std::deque<unsigned int>::iterator pos = std::lower_bound(result.begin(), result.begin() + count + j + 1, pendSet[j]);
                 result.insert(pos, pendSet[j]);
                 pendSet[j] = -1;
+                count++;
             }
             j--;
         }
@@ -211,11 +216,6 @@ void    PmergeMe::sortd()
 void    PmergeMe::fjv()
 {
     sort();
-    for (unsigned int i = 0; i < repeated.size(); i++)
-    {
-        std::vector<unsigned int>::iterator pos = std::lower_bound(vec.begin(), vec.end(), repeated[i]);
-        vec.insert(pos, repeated[i]);
-    }
     clock_t end = std::clock();
 
     double microseconds = 1000000.0;
@@ -226,11 +226,6 @@ void    PmergeMe::fjv()
 void    PmergeMe::fjd()
 {
     sortd();
-    for (unsigned int i = 0; i < d_repeated.size(); i++)
-    {
-        std::deque<unsigned int>::iterator pos = std::lower_bound(deq.begin(), deq.end(), d_repeated[i]);
-        deq.insert(pos, d_repeated[i]);
-    }
     clock_t end = std::clock();
 
     double microseconds = 1000000.0;
@@ -246,20 +241,22 @@ void    PmergeMe::printAfter()
 }
 
 
-void    PmergeMe::printBefore()
+void    PmergeMe::printBefore(char **av)
 {
     std::cout << "Before: ";
-    for (unsigned int i = 0; i < to_print.size(); i++)
-        std::cout << to_print[i] << " ";
+    for (int i = 1; i <= length; i++)
+        std::cout << av[i] << " ";
     std::cout << "\n";
 }
 
 void    PmergeMe::display()
 {
+    if (dub_check)
+        std::cout << "\033[38;5;208mDuplicates are found, they'll be earsed\033[0m" << "\n";
     int i = 0;
-    for (unsigned int i = 0; i < deq.size() - 1; i++)
+    for (unsigned int j = 0; j < vec.size() - 1; j++)
     {
-        if (deq[i] > deq[i + 1])
+        if ((vec[j] > vec[j + 1]) || (deq[j] > deq[j + 1]))
         {
             i++;
             break;
@@ -268,8 +265,9 @@ void    PmergeMe::display()
     if (!i)
         std::cout << "\033[32mSorted successfully!" << std::endl;
 
-    std::cout << "Time to process a range of " << std::fixed << std::setprecision(5) << length <<  " with std::vector: " << ttpv << " us" << std::endl; 
-    std::cout << "Time to process a range of " << std::fixed << std::setprecision(5) << length <<  " with std::deque: " << ttpd << " us" << std::endl; 
+    int vec_size = vec.size();
+    std::cout << "Time to process a range of " << std::fixed << std::setprecision(5) << vec_size <<  " with std::vector: " << ttpv << " us" << std::endl; 
+    std::cout << "Time to process a range of " << std::fixed << std::setprecision(5) << vec_size <<  " with std::deque: " << ttpd << " us" << std::endl;
 }
 
 void PmergeMe::loadData(char **av)
@@ -286,11 +284,10 @@ void PmergeMe::loadData(char **av)
             throw std::runtime_error("Error: Can't process negative numbers");
 
         std::set<unsigned int>::iterator it = repeated_tmp.find(num);
-        to_print.push_back(num);
         if (it != repeated_tmp.end())
         {
-            repeated.push_back(num);
-            d_repeated.push_back(num);
+            if (!dub_check)
+                dub_check = true;
         }
         else
         {
@@ -299,5 +296,5 @@ void PmergeMe::loadData(char **av)
             deq.push_back(num);
         }
     }
-    printBefore();
+    printBefore(av);
 }

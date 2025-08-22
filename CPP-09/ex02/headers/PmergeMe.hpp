@@ -9,6 +9,7 @@
 #include <vector>
 #include <deque>
 #include <set>
+#include <map>
 
 #include <algorithm>
 
@@ -18,14 +19,11 @@ class PmergeMe
         std::vector<unsigned int>    vec;
         std::deque<unsigned int>     deq;
 
-        std::vector<unsigned int>     repeated;
-        std::deque<unsigned int>      d_repeated;
-        std:: vector<unsigned int>    to_print;
         int length;
+        bool dub_check;
+        double start_time;
         double ttpv;
         double ttpd;
-        double start_time;
-
 
         void    sort();
         void    sortd();
@@ -37,7 +35,7 @@ class PmergeMe
         void    loadData(char **);
         void    fjv();
         void    fjd();
-        void    printBefore();
+        void    printBefore(char **av);
         void    printAfter();
         void    display();
 
