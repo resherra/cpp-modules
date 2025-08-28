@@ -21,19 +21,11 @@ RPN::RPN(std::string arg): expression(arg)
     sanitize();
 }
 
-int RPN::getTop()
-{
-    if (s.empty())
-        return -1;
-    return s.top();
-}
-
 std::ostream &operator<<(std::ostream &os, RPN &rpn)
 {
-    int top = rpn.getTop();
-    if (top == -1)
+    if (rpn.s.empty())
         return os;
-    os << rpn.getTop();
+    os << rpn.s.top();
     return os;
 }
 
@@ -44,12 +36,12 @@ static int is_sign(char c)
     return 0;
 }
 
-void    RPN::sanitize()
+void RPN::sanitize()
 {
     expression.erase(remove_if(expression.begin(), expression.end(), isspace), expression.end());
     int operands = 0;
     int operators = 0;
-    
+
     for (std::string::iterator it = expression.begin(); it != expression.end(); ++it)
     {
         char c = *it;
@@ -85,6 +77,11 @@ void    RPN::evaluate()
             s.push(c - '0');
         } else
         {
+            if (s.size() < 2)
+            {
+                std::cerr << "Invalid RPN expression" << std::endl;
+                std::exit(1);
+            }
             std::pair<int, int> pa;
             pa.second = s.top();
             s.pop();
@@ -98,7 +95,11 @@ void    RPN::evaluate()
             else if (sign == '*')
                 res = pa.first * pa.second;
             else if (sign == '/')
+            {
+                if (pa.second == 0)
+                    throw std::runtime_error("Error: Can't divide by 0.");
                 res = pa.first / pa.second;
+            }
             s.push(res);
         }
     }

@@ -7,9 +7,14 @@ int main(int ac, char **av)
         std::cerr << "Invalid arguments" << std::endl;
         std::exit(1);
     }
-    
     RPN exp(av[1]);
-    exp.evaluate();
-    
+    try
+    {
+        exp.evaluate();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what();
+    }
     std::cout << exp << std::endl;
 }

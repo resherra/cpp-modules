@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <exception>
 
 class RPN
 {
@@ -17,15 +18,15 @@ class RPN
         RPN(const RPN&);
         RPN(std::string);
 
-        int     getTop();
         void    evaluate();
 
         RPN &operator=(const RPN &);
 
+        friend std::ostream& operator<<(std::ostream&,  RPN&);
+        
         ~RPN();
 };
 
-std::ostream& operator<<(std::ostream&,  RPN&);
 
 #endif
 
