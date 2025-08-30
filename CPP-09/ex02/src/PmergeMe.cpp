@@ -25,8 +25,6 @@ PmergeMe&   PmergeMe::operator=(const PmergeMe& other)
 static int is_int(std::string str)
 {
     int i = 0;
-    if (str[i] == '-' || str[i] == '+')
-        i++;
     while (str[i])
     {
         if (std::isdigit(str[i]) == 0)
